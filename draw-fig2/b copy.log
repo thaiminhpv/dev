@@ -1,0 +1,24 @@
+1. Instantiate the `Calculator` class.
+2. Call the `calculate` method with the expression '1+2*3'.
+Within the `calculate` method:
+  - Initialize `operand_stack` as an empty list, `operator_stack` as an empty list, and `num_buffer` as an empty string.
+  - Iterate over each character in the expression '1+2*3':
+    '1': It's a digit, so add it to `num_buffer` ('1').
+    '+': `num_buffer` contains '1'; convert it to float and add `1.0` to `operand_stack`. Clear `num_buffer`. `operand_stack` is now [1.0]. Add '+' to `operator_stack`; now `operator_stack` is ['+'].
+    '2': It's a digit, so add it to `num_buffer` ('2').
+    '*': `num_buffer` contains '2'; convert it to float and add `2.0` to `operand_stack`. Clear `num_buffer`. `operand_stack` is now [1.0, 2.0].
+      - The operator '*' has higher precedence (2) compared to '+', which has lower precedence (1).
+      - Add '*' to `operator_stack`; now `operator_stack` is ['+', '*'].
+    '3': It's a digit, so add it to `num_buffer` ('3').
+  - End of iteration: `num_buffer` contains '3'; convert it to float and add `3.0` to `operand_stack`.`operand_stack` is now [1.0, 2.0, 3.0].
+  - Apply operators remaining in `operator_stack`:
+    - Operator '*' is applied:
+      - Pop `2` and `3` from `operand_stack` and pop '*' from `operator_stack`.
+      - Compute `2.0 * 3.0 = 6.0`.
+      - Add `6.0` back to `operand_stack`; now `operand_stack` is [1.0, 6.0].
+    - Operator '+' is applied:
+      - Pop `1.0` and `6.0` from `operand_stack` and pop '+' from `operator_stack`.
+      - Compute `1.0 + 6.0 = 7.0`.
+      - Add `7.0` back to `operand_stack`; now `operand_stack` is [7.0].
+  - `operand_stack` should have one element left, `7.0`, which is the result.
+So, the final output of `calculator.calculate('1+2*3')` is `7.0`.

@@ -1,0 +1,113 @@
+You are a helpful assistant for code understanding.
+Summarize the following Python class at two levels:
+1. The overall class.
+2. Each method individually.
+
+Return your answer strictly in JSON format:
+{{
+  "class_summary": "...",
+  "methods": [
+    {{"method_name": "method1", "method_summary": "..."}},
+    {{"method_name": "method2", "method_summary": "..."}}
+  ]
+}}
+
+Here is the class code:
+
+```python
+{code}
+```
+
+
+You are a helpful assistant for code understanding.
+Summarize the main functionality of this functiion.
+
+```python
+{code}
+```
+
+
+You are an expert code reviewer. Evaluate how well a generated summary matches the gold reference.
+
+### Scoring Rubric
+- 5/5 (Excellent): Semantically equivalent to reference; covers the main purpose accurately; concise; no major omissions or errors.
+- 4/5 (Good): Mostly correct; captures main idea but misses a minor detail or is slightly imprecise.
+- 3/5 (Fair): Partially correct; captures some intent but misses important elements or includes minor inaccuracies.
+- 2/5 (Poor): Only loosely related; major inaccuracies or misses most key functionality.
+- 1/5 (Very poor): Irrelevant or completely wrong.
+
+### Examples
+Reference: "Sorts a list of numbers in ascending order."
+Generated: "Reverses a list."
+Score: 1/5
+Justification: Opposite functionality; incorrect.
+
+Reference: "Parses a JSON string into a Python dictionary."
+Generated: "Converts JSON text into a dict object."
+Score: 5/5
+Justification: Same meaning; different wording.
+
+Reference: "Computes factorial of n using recursion."
+Generated: "Computes factorial of n."
+Score: 4/5
+Justification: Correct but missing recursion detail.
+
+---
+
+Now evaluate the following method:
+
+Reference: "{ref_summary}"
+Generated: "{gen_summary}"
+
+Output strictly in this format (start with 'Score: X/5'):
+Score: X/5
+Justification: <one or two sentences>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are given a full Python class and a unittest test case that calls its methods. 
+Your task is to simulate the program step by step and predict the exact output of the test method.
+MUST think step by step and provide rationale for each step. 
+All the rationale must go inside the <think> tag and must NOT mention the final output.
+
+Complete it with the predicted value of the LEFT side of the assertion (the exact output), and fill it in on the RIGHT side of the assertion, keeping the same provided format of the assertion and only replacing ?? with the predicted output.
+Do NOT output anything extra.
+Provide the completed assertion inside <answer> and </answer> tags.
+
+<code>
+{code}
+
+assert {test} == ??
+</code>
+
+<think>
+Simulate the execution of the class and the unittest code, tracking changes to operands, operators, and attributes. 
+Provide the rationale for each step, leading to the final computed output.
+</think>
+
+<answer>
+assert {test} == ??
+</answer>
